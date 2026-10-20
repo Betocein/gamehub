@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% block content %}
+<section class="hero">
+  <h1>Descubre tu próximo videojuego</h1>
+  <p>GameHub te muestra los juegos más populares, con su género, fecha de lanzamiento y calificación, usando datos de la API de RAWG.</p>
+  <a class="btn" href="{% url 'games' %}">Ver juegos</a>
+  {% if not user.is_authenticated %}<a class="btn alt" href="{% url 'register' %}">Crear cuenta</a>{% endif %}
+</section>
+<div class="grid">
+  <div class="card"><div class="body"><h3>🔎 Busca juegos</h3><p class="mut">Encuentra cualquier título por nombre.</p></div></div>
+  <div class="card"><div class="body"><h3>🔐 Cuenta segura</h3><p class="mut">Contraseñas cifradas y formularios protegidos.</p></div></div>
+  <div class="card"><div class="body"><h3>🌐 API externa</h3><p class="mut">Datos en tiempo real desde RAWG.</p></div></div>
+</div>
+{% endblock %}

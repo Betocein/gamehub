@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% block title %}Registro · GameHub{% endblock %}
+{% block content %}
+<div class="box">
+  <h2>Crear cuenta</h2>
+  <form method="post" novalidate>
+    {% include '_form.html' %}
+    <p><button class="btn" type="submit">Registrarme</button></p>
+  </form>
+  <p class="mut">¿Ya tienes cuenta? <a href="{% url 'login' %}">Inicia sesión</a></p>
+</div>
+{% endblock %}

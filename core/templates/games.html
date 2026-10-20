@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% block title %}Juegos · GameHub{% endblock %}
+{% block content %}
+<h2>Videojuegos{% if q %} · resultados para «{{ q }}»{% else %} populares{% endif %}</h2>
+<form class="search" method="get">
+  <input type="text" name="q" value="{{ q }}" maxlength="50" placeholder="Buscar un juego...">
+  <button class="btn" type="submit">Buscar</button>
+</form>
+{% if error %}<div class="msg error">{{ error }}</div>{% endif %}
+<div class="grid">
+{% for g in games %}
+  <div class="card">
+    {% if g.image %}<img src="{{ g.image }}" alt="{{ g.name }}">{% else %}<img alt="">{% endif %}
+    <div class="body"><h3>{{ g.name }}</h3>
+      <div class="mut">⭐ {{ g.rating }} · {{ g.released }}</div>
+      <div class="mut">{{ g.genres }}</div></div>
+  </div>
+{% empty %}{% if not error %}<p class="mut">No se encontraron juegos.</p>{% endif %}{% endfor %}
+</div>
+{% endblock %}
